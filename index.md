@@ -1,4 +1,4 @@
-﻿## TODO: Monady
+﻿## Welcome to Monad Club
 
 Marcin Malinowski
 
@@ -10,7 +10,7 @@ Marcin Malinowski
 
 ## Abstrakt
 
-TODO:
+Pierwsza zasada klubu - monad się nie tłumaczy. Druga zasada... Zatem zamiast tłumaczyć, będziemy obserwować je w naturze (językach C# i F#).
 
 ---
 
