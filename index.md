@@ -46,7 +46,9 @@ Zatem zamiast tłumaczyć, będziemy obserwować je w naturze (językach C# i F#
 
 <!-- .slide: data-background="./images/skull.png" style="top: -50px !important;" -->
 
-> "Monady – byty duchowe nie mające charakteru czasowego ani przestrzennego"
+> "Monady to byty duchowe nie mające charakteru czasowego ani przestrzennego"
+
+> Gottfried Wilhelm Leibniz
 
 Note:
  - zapytajmy eksperta
@@ -54,6 +56,15 @@ Note:
 ***
 
 ### I śmieszno?
+
+<!-- .slide: style="top: -100px !important;" -->
+![Energy](./images/monam.gif)
+
+> Monadic awareness is awakened through specific meditation practices.
+
+Zródło: http://www.energyreality.com/pgs/mona.htm
+
+***
 
 <!-- .slide: style="top: -100px !important;" -->
 ![Barbie](./images/barbie_monad.png)
@@ -140,6 +151,27 @@ Na szczęście, aby używać LINQ-a nie musimy znać w każdym szczególe implem
 ***
 
 TODO: podsumowanie
+# begin with the concrete, and move to the abstract
+
+Programmable semicolons
+AOP
+Burritos
+Container Types
+Elephant in the room
+Higher order functions
+Chain operations
+Pipelines
+Decorators
+Assembly lines
+DSL
+Functors
+Amplified types
+Wrappers around function invocation
+Function generators
+Programming structure that represents computations
+Composable computation descriptions
+
+https://www.jasondavies.com/wordcloud/
 
 ***
 
