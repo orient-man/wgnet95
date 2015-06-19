@@ -10,7 +10,11 @@ Marcin Malinowski
 
 ## Abstrakt
 
-Pierwsza zasada klubu - monad się nie tłumaczy. Druga zasada... Zatem zamiast tłumaczyć, będziemy obserwować je w naturze (językach C# i F#).
+Pierwsza zasada klubu - monad się nie tłumaczy.
+
+Druga zasada...
+
+Zatem zamiast tłumaczyć, będziemy obserwować je w naturze (językach C# i F#).
 
 ---
 
@@ -26,42 +30,40 @@ Pierwsza zasada klubu - monad się nie tłumaczy. Druga zasada... Zatem zamiast 
 
 ## Spis rzeczy
 
-TODO:
+1. Dlaczego nie?
+2. Kod, kod, kod
+3. Dlaczego tak?
 
 ***
 
-### Monadic null checking aka null propagator
+## Dlaczego nie?
 
-F# dziś:
-```fsharp
-let (>>=) x y = Option.bind y x // generalnie mało przydatne
-```
-
-C# 2015:
-```csharp
-var bestValue = points?.FirstOrDefault()?.X ?? -1;
-```
+![Miming](./images/miming.jpg)
 
 ***
 
-# Jeśli C# jest już językiem funkcyjnym to...
-
----
+### Bo straszno?
 
 <!-- .slide: data-background="./images/skull.png" style="top: -50px !important;" -->
-## Gdzie te Monady?
 
-> "Monady – byty duchowe; nie mają charakteru czasowego ani przestrzennego"
+> "Monady – byty duchowe nie mające charakteru czasowego ani przestrzennego"
 
 Note:
  - zapytajmy eksperta
 
----
+***
+
+### I śmieszno?
 
 <!-- .slide: style="top: -100px !important;" -->
 ![Barbie](./images/barbie_monad.png)
 
----
+***
+
+<!-- .slide: style="top: -100px !important;" -->
+![Barbie](./images/teoria_kategorii.png)
+
+***
 
 ### Tako rzecze źródło wszelkiej wiedzy
 
@@ -76,116 +78,17 @@ http://pl.wikipedia.org/wiki/Monada_%28programowanie%29
 <!-- .slide: data-transition="convex" -->
 ![Ginger](./images/ginger.jpeg)
 
----
+***
 
-### Ostatnia szansa: przez przykład
-```csharp
-public static Task<T> ToTask<T>(this T value) // aka "unit" lub "return"
-{
-    return Task<T>.Factory.StartNew(() => value);
-}
-
-public static Task<B> Bind<A, B>(this Task<A> a, Func<A, Task<B>> func)
-{
-    return a.ContinueWith(prev => func(prev.Result)).Unwrap();
-}
-
-public static Task<C> SelectMany<A, B, C>(
-    this Task<A> a, Func<A, Task<B>> func, Func<A, B, C> select)
-{
-    return a.Bind(
-        aval => func(aval).Bind(bval => select(aval, bval).ToTask()));
-}
-```
+## Kod, kod, kod...
 
 ---
 
-### Co to robi?
-
-```csharp
-Func<Task<int>> compute3 = () => 3.ToTask();
-Func<int, int, Task<int>> prod = (x, y) => (x * y).ToTask();
-Func<int, int, Task<int>> add = (x, y) => (x + y).ToTask();
-
-var r =
-    from a in compute3()
-    from b in prod(a, 2)
-    from c in add(b, 4)
-    select c.ToString();
-
-r.Result.Should().Be("10");
-```
-
----
-
-### Co kompilator tłumaczy na:
-
-```csharp
-var r =
-    compute3()
-        .SelectMany(a => prod(a, 2), (a, b) => new { a, b })
-        .SelectMany(ab => add(ab.b, 4), (ab, c) => c.ToString());
-```
-
----
-
-### Przykłady typów monadycznych w C# ###
-
-- ``Nullable<T>``
-- ``Func<T>``
-- ``Lazy<T>``
-- ``Task<T>``
-- ``IEnumerable<T>``
-
----
-
-### Ograniczenia Monad w C# ###
-
-- LINQ jest zaprojektowany do zapytań (zaskoczenie :)
-    - Brak instrukcji sterujących: if/then/else, pętli etc.
-- Brak uniwersalnego wsparcia dla typu "monadycznego" na poziomie języka np.: _notacja do_ w Haskellu, _computational expressions_ w F#
-
-<!-- .element: class="fragment" -->
-Stąd każdy typ monadyczny, aby w pełni się nim cieszyć wymaga zmian w składni C#.
-
----
-
-## Computational Expressions w F# ##
-
-Workflow _async_ będący pierwowzorem dla składni _async/await_ w C#:
-
-```fsharp
-open System.IO
-open System.Net
-
-let downloadUrl(url : string) = async {
-    let request = HttpWebRequest.Create(url)
-    use! response = request.AsyncGetResponse()
-    let stream = response.GetResponseStream()
-    use reader = new StreamReader(stream)
-    return! reader.AsyncReadToEnd()
-}
-```
-
----
-
-...co kompiltor przetłumaczy na:
-```fsharp
-async.Delay(fun () ->
-    let request = HttpWebRequest.Create(url)
-    async.Bind(request.AsyncGetResponse(), fun response ->
-        async.Using(response, fun response ->
-            let stream = response.GetResponseStream()
-            async.Using(new StreamReader(stream), fun reader ->
-                reader.AsyncReadToEnd()))))
-```
-
-<!-- .element: class="fragment" -->
 ![http://tia.mat.br/blog/html/2012/09/29/asynchronous_i_o_in_c_with_coroutines.html](./images/callbacks.jpg)
 
 ---
 
-...gdzie ``async`` jest instancją klasy ``AsyncBuilder``:
+``async`` jest instancją klasy ``AsyncBuilder``:
 
 ```fsharp
 type AsyncBuilder =
@@ -210,25 +113,42 @@ Na szczęście, aby używać LINQ-a nie musimy znać w każdym szczególe implem
 
 ***
 
-![Rękopis znaleziony w Saragossie](./images/rekopis.jpg)
+### Przykłady typów monadycznych w C# ###
+
+- ``Nullable<T>``
+- ``Func<T>``
+- ``Lazy<T>``
+- ``Task<T>``
+- ``IEnumerable<T>``
+
+---
+
+### Podsumownie Monad w C# ###
+
+- LINQ jest zaprojektowany do zapytań (zaskoczenie :)
+    - Brak instrukcji sterujących: if/then/else, pętli etc.
+- Brak uniwersalnego wsparcia dla typu "monadycznego" na poziomie języka np.: _notacja do_ w Haskellu, _computational expressions_ w F#
+- Stąd część użytecznych monad zostala wbudowana w język
+
+<!-- .element: class="fragment" -->
+...ale to nie znaczy, że nie możemy stworzyć naprawdę użytecznych monad w C#!
+
+---
+
+### Przykład: Parser
+
+***
+
+TODO: podsumowanie
 
 ***
 
 ## Bibliografia
 
+TODO:
+
 - Blog: [F# for fun and profit](http://fsharpforfunandprofit.com/) - skarbiec!
-- Artykuł: [Why Functional Programming Matters](http://www.cse.chalmers.se/~rjmh/Papers/whyfp.html)
 - Książka: [Real-World Functional Programming: With Examples in F# and C# - Petricek & Skeet](http://www.amazon.com/Real-World-Functional-Programming-With-Examples/dp/1933988924)
-
-Materiały:
-
-- Slajdy: ?
-- Źródłowce: ?
-
----
-
-### Bibliografia (Monady)
-
 - Video: [Mike Hadlow on Monads](http://vimeo.com/21705972) - prościej się nie da?
 - Video: [Scott Wlaschin - Railway Oriented Programming -- error handling in functional languages](http://vimeo.com/97344498)
 - Video: [Greg Meredith - Monadic Design Patterns for the Web - Introduction to Monads](http://channel9.msdn.com/Series/C9-Lectures-Greg-Meredith-Monadic-Design-Patterns-for-the-Web/C9-Lectures-Greg-Meredith-Monadic-Design-Patterns-for-the-Web-Introduction-to-Monads) - abstrakcyjnie, ale zjadliwie
@@ -237,3 +157,5 @@ Materiały:
 ***
 
 # Aaa... pytania?
+
+TODO: ankieta
