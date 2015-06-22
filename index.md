@@ -44,7 +44,7 @@ Zatem zamiast tłumaczyć, będziemy obserwować je w naturze (językach C# i F#
 
 ### Bo straszno?
 
-<!-- .slide: data-background="./images/skull.png" style="top: -50px !important;" -->
+<!-- .slide: data-background="./images/skull.png" -->
 
 > "Monady to byty duchowe nie mające charakteru czasowego ani przestrzennego"
 
@@ -57,7 +57,6 @@ Note:
 
 ### I śmieszno?
 
-<!-- .slide: style="top: -100px !important;" -->
 ![Energy](./images/monam.gif)
 
 > Monadic awareness is awakened through specific meditation practices.
