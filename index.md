@@ -93,6 +93,9 @@ http://pl.wikipedia.org/wiki/Monada_%28programowanie%29
 
 ## Kod, kod, kod...
 
+Note:
+ - option - OptionBuilder - ROP - task - AsyncBuilder
+
 ---
 
 ![http://tia.mat.br/blog/html/2012/09/29/asynchronous_i_o_in_c_with_coroutines.html](./images/callbacks.jpg)
@@ -150,26 +153,27 @@ Na szczęście, aby używać LINQ-a nie musimy znać w każdym szczególe implem
 
 ***
 
-TODO: podsumowanie
-# begin with the concrete, and move to the abstract
+<!-- .slide: data-background="./images/wordle.png" style="top: -50px !important;" -->
 
-Programmable semicolons
-AOP
-Burritos
-Container Types
-Elephant in the room
-Higher order functions
-Chain operations
-Pipelines
-Decorators
-Assembly lines
-DSL
-Functors
-Amplified types
-Wrappers around function invocation
-Function generators
-Programming structure that represents computations
-Composable computation descriptions
+Note:
+
+Programmable semicolons:5
+AOP:3
+Burritos:1
+Container Types:1
+Elephant in the room:3
+Higher order functions:2
+Chain operations:3
+Pipelines:2
+Decorators:3
+Assembly lines:1
+DSL:2
+Functors:1
+Amplified types:1
+Wrappers around function invocation:1
+Function generators:4
+Programming structure that represents computations:1
+Composable computation descriptions:1
 
 https://www.jasondavies.com/wordcloud/
 
