@@ -57,7 +57,7 @@ Note:
 
 ### I śmieszno?
 
-![Energy](./images/monam.gif)
+![Energy](./images/ego_monad.gif)
 
 > Monadic awareness is awakened through specific meditation practices.
 
