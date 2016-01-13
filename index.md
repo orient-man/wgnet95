@@ -197,6 +197,6 @@ Ankieta: https://www.surveymonkey.com/r/6VPVT2P Pls!
 
 ![Ankieta QR Code](./images/ankieta-qrcode.png)
 
-- Slajdy: http://devLDZ-7.orientman.com/
+- Slajdy: http://orient-man.github.io/BoilingFrogs2016/
 - Źródłowce: https://github.com/orient-man/MonadClub
 
