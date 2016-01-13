@@ -193,7 +193,7 @@ https://www.jasondavies.com/wordcloud/
 
 ## Aaa... pytania?
 
-Ankieta: https://www.surveymonkey.com/s/Y3SGVYD Pls!
+Ankieta: https://www.surveymonkey.com/r/6VPVT2P Pls!
 
 ![Ankieta QR Code](./images/ankieta-qrcode.png)
 
