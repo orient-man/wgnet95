@@ -196,10 +196,14 @@ https://www.jasondavies.com/wordcloud/
 
 ## Aaa... pytania?
 
-Ankieta: https://www.surveymonkey.com/r/6VPVT2P Pls!
+Ankieta: https://www.surveymonkey.com/r/QR6HW8R Pls!
 
 ![Ankieta QR Code](./images/ankieta-qrcode.png)
 
-- Slajdy: http://orient-man.github.io/BoilingFrogs2016/
+- Slajdy: http://orient-man.github.io/wgnet95/
 - Źródłowce: https://github.com/orient-man/MonadClub
+
+Note:
+
+http://goqr.me/
 
