@@ -148,7 +148,10 @@ Na szczęście, aby używać LINQ-a nie musimy znać w każdym szczególe implem
 
 ---
 
-### Przykład: Parser
+### Przykład: Parser monadyczny
+
+- https://github.com/sprache/Sprache
+- C# Functional Language Extensions: https://github.com/louthy/language-ext
 
 ***
 
