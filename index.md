@@ -185,10 +185,10 @@ https://www.jasondavies.com/wordcloud/
 
 ## Bibliografia
 
-- Blog: [F# for fun and profit](http://fsharpforfunandprofit.com/) - skarbiec!, ale za słowo na M dostaje się [bana](http://fsharpforfunandprofit.com/about/#banned)
 - Książka: [Real-World Functional Programming - Petricek & Skeet](http://www.amazon.com/Real-World-Functional-Programming-With-Examples/dp/1933988924) - [rozdział 12](http://www.manning.com/petricek/SampleChapter12.pdf)
 - Video: [Mike Hadlow on Monads](http://vimeo.com/21705972) - prościej się nie da?
 - Video: [Scott Wlaschin - Railway Oriented Programming -- error handling in functional languages](http://vimeo.com/97344498)
+- Video: [Scott Wlaschin - Coding Like Frankenstein](https://vimeo.com/142347199) - i pozamiatane!
 - Video: [Greg Meredith - Monadic Design Patterns for the Web - Introduction to Monads](http://channel9.msdn.com/Series/C9-Lectures-Greg-Meredith-Monadic-Design-Patterns-for-the-Web/C9-Lectures-Greg-Meredith-Monadic-Design-Patterns-for-the-Web-Introduction-to-Monads) - abstrakcyjnie, ale zjadliwie
 - Blog: [Fabulous adventures in coding: Monads, parts 1-13](http://ericlippert.com/category/monads/) - wyczerpująco
 
