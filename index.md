@@ -196,7 +196,7 @@ https://www.jasondavies.com/wordcloud/
 
 ## Aaa... pytania?
 
-Ankieta: https://www.surveymonkey.com/r/QR6HW8R Pls!
+Ankieta: http://bit.do/wgnet95
 
 ![Ankieta QR Code](./images/ankieta-qrcode.png)
 
